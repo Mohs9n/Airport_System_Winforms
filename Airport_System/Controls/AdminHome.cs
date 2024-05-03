@@ -1,4 +1,6 @@
-﻿namespace Airport_System.Controls
+﻿using System.Text.Json;
+
+namespace Airport_System.Controls
 {
     public partial class AdminHome : UserControl
     {
@@ -9,51 +11,53 @@
 
         private void CreateFile_Click(object sender, EventArgs e)
         {
-            // Get the current path
-            string currentPath = Directory.GetCurrentDirectory();
-
-            // Define the filename
             string filename = FileNameTF.Text;
-
-            // Create the full path
-            string fullPath = Path.Combine(currentPath, filename);
-
-            // Check if the file exists
-            if (!File.Exists(fullPath))
+            if (filename == "")
             {
-                // Create the file
-                try
-                {
-                    File.Create(fullPath).Close();
-                    FileErrorLabel.Text = "File Created";
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error creating file: " + ex.Message);
-                    FileErrorLabel.Text = ex.Message;
-                }
+                MessageBox.Show("File name Must NOT be empyt!");
+                return;
             }
-            else
+            filename = $"{filename}.json";
+            try
             {
-                FileErrorLabel.Text = "File Exists";
+                string jsonString = JsonSerializer.Serialize(Program.data);
+                File.WriteAllText(filename, jsonString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            CreateFileLocation(filename);
+        }
+
+        private void CreateFileLocation(string newFile)
+        {
+            string filename = "aport.json";
+            try
+            {
+                string jsonString = JsonSerializer.Serialize(newFile);
+                File.WriteAllText(filename, jsonString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void DeleteFile_Click(object sender, EventArgs e)
         {
-            // Get the current path
             string currentPath = Directory.GetCurrentDirectory();
 
-            // Define the filename
             string filename = FileNameTF.Text;
+            if (filename == "")
+            {
+                MessageBox.Show("File name Must NOT be empyt!");
+            }
 
-            // Create the full path
             string fullPath = Path.Combine(currentPath, filename);
 
-            // Check if the file exists
             if (File.Exists(fullPath))
             {
-                // Create the file
                 try
                 {
                     File.Delete(fullPath);

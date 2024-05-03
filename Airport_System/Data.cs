@@ -6,8 +6,10 @@ namespace Airport_System
     {
         public Airport MainAirport { get; set; }
         public List<Airport> Airports { get; set; } = [];
+        // public required string FileName { get; set; } = string.Empty;
         public Data()
         {
+            // FileName = string.Empty;
             MainAirport = InitAirport();
             CreateAirports();
         }
@@ -23,6 +25,7 @@ namespace Airport_System
                 City = new City { Name = "Cairo" },
                 Adminstrator = new Adminstrator
                 {
+                    Id = 1,
                     Email = "e",
                     Name = "One Piece",
                     PhoneNumber = "1234567890",
@@ -58,6 +61,7 @@ namespace Airport_System
                 City = new City { Name = "Toronto" },
                 Adminstrator = new Adminstrator
                 {
+                    Id = 1,
                     Email = "e",
                     Name = "One Piece",
                     PhoneNumber = "1234567890",
@@ -72,6 +76,7 @@ namespace Airport_System
                 City = new City { Name = "California" },
                 Adminstrator = new Adminstrator
                 {
+                    Id = 1,
                     Email = "e",
                     Name = "One Piece",
                     PhoneNumber = "1234567890",

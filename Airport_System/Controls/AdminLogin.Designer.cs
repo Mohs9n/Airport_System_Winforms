@@ -43,7 +43,7 @@
             adminLoginButton.Name = "adminLoginButton";
             adminLoginButton.Size = new Size(75, 23);
             adminLoginButton.TabIndex = 0;
-            adminLoginButton.Text = "button1";
+            adminLoginButton.Text = "Login";
             adminLoginButton.UseVisualStyleBackColor = true;
             adminLoginButton.Click += adminLoginButton_Click;
             // 

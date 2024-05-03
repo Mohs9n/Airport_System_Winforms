@@ -15,11 +15,13 @@
                 email == Program.data.MainAirport.Adminstrator.Email && 
                  password == Program.data.MainAirport.Adminstrator.Password)
             {
+                Main.LoggedInUser = Program.data.MainAirport.Adminstrator;
+                Main.userName.Text = "Admin";
                 Main.SwitchScreen(new AdminHome());
             }
             else
             {
-                MessageBox.Show($"Wrong deets: {email}, {password}");
+                MessageBox.Show($"Wrong details: {email}, {password}");
             }
         }
     }

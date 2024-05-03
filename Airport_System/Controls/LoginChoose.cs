@@ -21,5 +21,10 @@ namespace Airport_System.Controls
         {
             Main.SwitchScreen(new AdminLogin());
         }
+
+        private void GoToUserLogin_Click(object sender, EventArgs e)
+        {
+            Main.SwitchScreen(new UserLogin());
+        }
     }
 }

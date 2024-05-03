@@ -44,12 +44,13 @@
             // 
             // GoToUserLogin
             // 
-            GoToUserLogin.Location = new Point(389, 210);
+            GoToUserLogin.Location = new Point(342, 209);
             GoToUserLogin.Name = "GoToUserLogin";
-            GoToUserLogin.Size = new Size(75, 23);
+            GoToUserLogin.Size = new Size(172, 23);
             GoToUserLogin.TabIndex = 1;
-            GoToUserLogin.Text = "button2";
+            GoToUserLogin.Text = "Login As User";
             GoToUserLogin.UseVisualStyleBackColor = true;
+            GoToUserLogin.Click += GoToUserLogin_Click;
             // 
             // LoginChoose
             // 

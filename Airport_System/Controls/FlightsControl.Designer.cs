@@ -32,7 +32,6 @@
             SearchFlight = new Button();
             UpdateFlight = new Button();
             FlightNumberTF = new TextBox();
-            DestinationAirportTF = new TextBox();
             DepartmentTime = new DateTimePicker();
             ArrivalTime = new DateTimePicker();
             label1 = new Label();
@@ -41,6 +40,7 @@
             label5 = new Label();
             label6 = new Label();
             AirplanesCB = new ComboBox();
+            DestinationAirportCB = new ComboBox();
             SuspendLayout();
             // 
             // InsertFlight
@@ -61,6 +61,7 @@
             SearchFlight.TabIndex = 1;
             SearchFlight.Text = "Search";
             SearchFlight.UseVisualStyleBackColor = true;
+            SearchFlight.Click += SearchFlight_Click;
             // 
             // UpdateFlight
             // 
@@ -78,13 +79,6 @@
             FlightNumberTF.Name = "FlightNumberTF";
             FlightNumberTF.Size = new Size(100, 23);
             FlightNumberTF.TabIndex = 3;
-            // 
-            // DestinationAirportTF
-            // 
-            DestinationAirportTF.Location = new Point(213, 114);
-            DestinationAirportTF.Name = "DestinationAirportTF";
-            DestinationAirportTF.Size = new Size(100, 23);
-            DestinationAirportTF.TabIndex = 4;
             // 
             // DepartmentTime
             // 
@@ -146,22 +140,34 @@
             label6.AutoSize = true;
             label6.Location = new Point(104, 258);
             label6.Name = "label6";
-            label6.Size = new Size(38, 15);
+            label6.Size = new Size(70, 15);
             label6.TabIndex = 14;
-            label6.Text = "label6";
+            label6.Text = "Arrival Time";
+            label6.Click += label6_Click;
             // 
             // AirplanesCB
             // 
+            AirplanesCB.DropDownStyle = ComboBoxStyle.DropDownList;
             AirplanesCB.FormattingEnabled = true;
             AirplanesCB.Location = new Point(213, 163);
             AirplanesCB.Name = "AirplanesCB";
             AirplanesCB.Size = new Size(121, 23);
             AirplanesCB.TabIndex = 15;
             // 
+            // DestinationAirportCB
+            // 
+            DestinationAirportCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            DestinationAirportCB.FormattingEnabled = true;
+            DestinationAirportCB.Location = new Point(213, 115);
+            DestinationAirportCB.Name = "DestinationAirportCB";
+            DestinationAirportCB.Size = new Size(121, 23);
+            DestinationAirportCB.TabIndex = 16;
+            // 
             // FlightsControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(DestinationAirportCB);
             Controls.Add(AirplanesCB);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -170,7 +176,6 @@
             Controls.Add(label1);
             Controls.Add(ArrivalTime);
             Controls.Add(DepartmentTime);
-            Controls.Add(DestinationAirportTF);
             Controls.Add(FlightNumberTF);
             Controls.Add(UpdateFlight);
             Controls.Add(SearchFlight);
@@ -187,7 +192,6 @@
         private Button SearchFlight;
         private Button UpdateFlight;
         private TextBox FlightNumberTF;
-        private TextBox DestinationAirportTF;
         private DateTimePicker DepartmentTime;
         private DateTimePicker ArrivalTime;
         private Label label1;
@@ -196,5 +200,6 @@
         private Label label5;
         private Label label6;
         private ComboBox AirplanesCB;
+        private ComboBox DestinationAirportCB;
     }
 }
