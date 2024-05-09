@@ -37,9 +37,10 @@
             // 
             // CreateFile
             // 
-            CreateFile.Location = new Point(171, 230);
+            CreateFile.Location = new Point(336, 302);
+            CreateFile.Margin = new Padding(3, 4, 3, 4);
             CreateFile.Name = "CreateFile";
-            CreateFile.Size = new Size(75, 23);
+            CreateFile.Size = new Size(86, 31);
             CreateFile.TabIndex = 0;
             CreateFile.Text = "Create";
             CreateFile.UseVisualStyleBackColor = true;
@@ -47,16 +48,18 @@
             // 
             // FileNameTF
             // 
-            FileNameTF.Location = new Point(171, 165);
+            FileNameTF.Location = new Point(336, 215);
+            FileNameTF.Margin = new Padding(3, 4, 3, 4);
             FileNameTF.Name = "FileNameTF";
-            FileNameTF.Size = new Size(211, 23);
+            FileNameTF.Size = new Size(241, 27);
             FileNameTF.TabIndex = 1;
             // 
             // DeleteFile
             // 
-            DeleteFile.Location = new Point(307, 230);
+            DeleteFile.Location = new Point(492, 302);
+            DeleteFile.Margin = new Padding(3, 4, 3, 4);
             DeleteFile.Name = "DeleteFile";
-            DeleteFile.Size = new Size(75, 23);
+            DeleteFile.Size = new Size(86, 31);
             DeleteFile.TabIndex = 2;
             DeleteFile.Text = "Delete";
             DeleteFile.UseVisualStyleBackColor = true;
@@ -65,31 +68,32 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(94, 168);
+            label1.Location = new Point(248, 219);
             label1.Name = "label1";
-            label1.Size = new Size(60, 15);
+            label1.Size = new Size(76, 20);
             label1.TabIndex = 3;
             label1.Text = "File Name";
             // 
             // FileErrorLabel
             // 
             FileErrorLabel.AutoSize = true;
-            FileErrorLabel.Location = new Point(432, 168);
+            FileErrorLabel.Location = new Point(635, 219);
             FileErrorLabel.Name = "FileErrorLabel";
-            FileErrorLabel.Size = new Size(0, 15);
+            FileErrorLabel.Size = new Size(0, 20);
             FileErrorLabel.TabIndex = 4;
             // 
             // AdminHome
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(FileErrorLabel);
             Controls.Add(label1);
             Controls.Add(DeleteFile);
             Controls.Add(FileNameTF);
             Controls.Add(CreateFile);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AdminHome";
-            Size = new Size(800, 423);
+            Size = new Size(914, 564);
             ResumeLayout(false);
             PerformLayout();
         }

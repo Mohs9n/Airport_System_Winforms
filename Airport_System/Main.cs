@@ -46,7 +46,6 @@ namespace Airport_System
             }
         }
 
-
         public static void SwitchScreen(UserControl targetControl)
         {
             mainPanel.Controls.Clear();
@@ -56,26 +55,51 @@ namespace Airport_System
 
         private void createToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (LoggedInUser == null ||
+                LoggedInUser!.Email != Program.data.MainAirport.Adminstrator.Email)
+            {
+                MessageBox.Show("You must login as admin to access this panel");
+                return;
+            }
             SwitchScreen(new AdminHome());
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SwitchScreen(new AdminHome());
-        }
-
-        private void flightsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (LoggedInUser == null)
+            if (LoggedInUser == null ||
+                LoggedInUser != Program.data.MainAirport.Adminstrator)
             {
-                MessageBox.Show("You must login first to access this panel");
+                MessageBox.Show("You must login as admin to access this panel");
+                return;
             }
-            SwitchScreen(new FlightsControl());
+            SwitchScreen(new AdminHome());
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Main.SwitchScreen(new LoginChoose());
+        }
+
+        private void scheduleFlightsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser == null ||
+                LoggedInUser != Program.data.MainAirport.Adminstrator)
+            {
+                MessageBox.Show("You must login as admin to access this panel");
+                return;
+            }
+            SwitchScreen(new FlightsControl());
+        }
+
+        private void bookFlightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser == null ||
+                Program.data.MainAirport.Users.Any(u => u.Email == LoggedInUser.Email))
+            {
+                MessageBox.Show("You must login as a user to access this panel");
+                return;
+            }
+            SwitchScreen(new BookFlight());
         }
     }
 }
