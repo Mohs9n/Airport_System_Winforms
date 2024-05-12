@@ -1,5 +1,6 @@
 ﻿namespace Airport_System.Entities
 {
+    [Serializable]
     public class Ticket
     {
         public required int TicketNumber { get; set; }

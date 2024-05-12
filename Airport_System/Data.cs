@@ -2,6 +2,7 @@
 
 namespace Airport_System
 {
+    [Serializable]
     public class Data
     {
         public Airport MainAirport { get; set; }

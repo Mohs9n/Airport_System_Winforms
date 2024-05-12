@@ -1,5 +1,6 @@
 ﻿namespace Airport_System.Entities
 {
+    [Serializable]
     public class User
     {
         public required int Id { get; set; }

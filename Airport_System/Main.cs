@@ -1,5 +1,6 @@
 using Airport_System.Controls;
 using Airport_System.Entities;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
 using System.Windows.Forms.Design;
 
@@ -22,8 +23,15 @@ namespace Airport_System
 
                 if (File.Exists(filename))
                 {
-                    string dataJsonString = File.ReadAllText(filename);
-                    Program.data = JsonSerializer.Deserialize<Data>(dataJsonString)!;
+                    using (FileStream fs = new FileStream(filename, FileMode.Open))
+                    {
+                        #pragma warning disable SYSLIB0011
+                        BinaryFormatter bf = new();
+                        Program.data = (Data)bf.Deserialize(fs);
+                        #pragma warning restore SYSLIB0011
+                    }
+                  //  string dataJsonString = File.ReadAllText(filename);
+                   // Program.data = JsonSerializer.Deserialize<Data>(dataJsonString)!;
                 }
             }
         }
@@ -37,8 +45,15 @@ namespace Airport_System
             }
             try
             {
-                string jsonString = JsonSerializer.Serialize(Program.data);
-                File.WriteAllText(CurrentFileName, jsonString);
+                using (FileStream fs = new FileStream(CurrentFileName, FileMode.OpenOrCreate))
+                {
+                    #pragma warning disable SYSLIB0011
+                    BinaryFormatter bf = new();
+                    bf.Serialize(fs, Program.data);
+                    #pragma warning restore SYSLIB0011
+                }
+               // string jsonString = JsonSerializer.Serialize(Program.data);
+              //  File.WriteAllText(CurrentFileName, jsonString);
             }
             catch (Exception ex)
             {

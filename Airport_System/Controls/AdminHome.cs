@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
 
 namespace Airport_System.Controls
 {
@@ -17,11 +19,18 @@ namespace Airport_System.Controls
                 MessageBox.Show("File name Must NOT be empyt!");
                 return;
             }
-            filename = $"{filename}.json";
+            filename = $"{filename}.bin";
             try
             {
-                string jsonString = JsonSerializer.Serialize(Program.data);
-                File.WriteAllText(filename, jsonString);
+                using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
+                {
+                   #pragma warning disable SYSLIB0011
+                    BinaryFormatter bf = new();
+                    bf.Serialize(fs, Program.data);
+                    #pragma warning restore SYSLIB0011
+                }
+               // string jsonString = JsonSerializer.Serialize(Program.data);
+                //File.WriteAllText(filename, jsonString);
             }
             catch (Exception ex)
             {

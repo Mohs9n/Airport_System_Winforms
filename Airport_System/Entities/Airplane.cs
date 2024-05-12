@@ -1,5 +1,6 @@
 ﻿namespace Airport_System.Entities
 {
+    [Serializable]
     public class Airplane
     {
         public int Id { get; set; }

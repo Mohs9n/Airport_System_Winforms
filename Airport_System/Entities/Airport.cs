@@ -1,5 +1,6 @@
 ﻿namespace Airport_System.Entities
 {
+    [Serializable]
     public class Airport
     {
         public required string AirportCode { get; set; }
